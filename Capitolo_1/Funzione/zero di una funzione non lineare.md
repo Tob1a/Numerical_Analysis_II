@@ -3,4 +3,4 @@ $$
 $$
 La funzione, dato x compreso in un intervallo a e b, data x il risultato mi da 0
 
-La funzione è simile al [[punto fisso di una funzione non lineare]] 
+La funzione è simile al [[clone/Capitolo_1/punto fisso di una funzione non lineare]] 

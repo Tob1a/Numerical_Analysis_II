@@ -1,4 +1,5 @@
 La velocità di convergenza indica quanto velocemente il mio sistema approssimato converge alla soluzione
+la velocità non è uguale all'[[clone/Capitolo_1/Converge/ordine di convergenza|ordine di convergenza]] 
 Esistono più velocità
 1) **Convergenza Lineare**
 	$$
@@ -18,7 +19,7 @@ Esistono più velocità
 		\lim_{n\to \inf}{\frac{|x_{n+1}-x^*|}{|x_n-x^*|}=C}  \text{ dove     (C>0)}
 	$$
 	**Velocità**: Il numero di cifre corrette **raddoppia** a ogni passo
-	#Es. metodo [[Newton-Raphson]] per
+	#Es. metodo [[clone/Capitolo_1/Newton-Raphson]] per
 	$$
 	\begin{matrix}
 		\text{per }f(x)=0\\

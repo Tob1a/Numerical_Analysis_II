@@ -1,7 +1,7 @@
 Si applica agli spazi metrici completi e garantisce l'esistenza e unicità di un **punto fisso** per una particolare classe di funzioni dette **contrazioni**.
 Vattelo a becare sulle slide, ma salta la dimostrazione
 $$\rho \text{ è il raggio di un insieme X o S}$$
-Sia g(x) una [[mappa di contrazione]] in un opportuno dominio che contiene
+Sia g(x) una [[funzione di contrazione]] in un opportuno dominio che contiene
  $$
 [[	\overline{S(x^{(0)},p)}]]
 $$
@@ -23,6 +23,6 @@ $$
 $$
 
 _Per vedere la dimostrazione vatti a vedere le slide 15-17_
-Tuttavia in aritmetica finita non funziona in questo modo. Ho un vettore di errori che mi trascino durante l'aritmetica finita. Per un k che tende a infinito il mio sistema non [[converge]] per vai degli errori che mi trascino, _consiglio di guardare slide 19_
+Tuttavia in aritmetica finita non funziona in questo modo. Ho un vettore di errori che mi trascino durante l'aritmetica finita. Per un k che tende a infinito il mio sistema non [[clone/Capitolo_1/Converge/converge]] per vai degli errori che mi trascino, _consiglio di guardare slide 19_
 
 

@@ -10,12 +10,12 @@
         
 - **Esempi**:
     
-    - **[[Newton-Raphson]]** (per trovare radici di equazioni): converge quadraticamente, ma solo se x0x0​ è vicino alla radice.
+    - **[[clone/Capitolo_1/Newton-Raphson]]** (per trovare radici di equazioni): converge quadraticamente, ma solo se x0x0​ è vicino alla radice.
         
     - **Discesa del gradiente** (in ottimizzazione): converge a un minimo locale se la funzione è convessa nell'intorno del punto iniziale.
 
 
-Si può sostituire la [[mappa di contrazione]] con una [[pseudocontrattività]]
+Si può sostituire la [[funzione di contrazione]] con una [[clone/Capitolo_1/pseudocontrattività]]
 
 | Aspetto           | Convergenza Locale          |
 | ----------------- | --------------------------- |
