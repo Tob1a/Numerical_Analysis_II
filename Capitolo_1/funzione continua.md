@@ -1,0 +1,1 @@
+Una funzione continua è una funzione la cui linea per disegnarla non stacco mai la matita dal foglio

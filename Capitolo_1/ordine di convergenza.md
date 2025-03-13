@@ -1,0 +1,1 @@
+Indica quanto rapidamente i valori diminuiscono ad ogni iterazione

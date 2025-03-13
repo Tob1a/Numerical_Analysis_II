@@ -1,0 +1,1 @@
+Un vettore x è formato da n componenti (incognite) (x_1,x_2,...x_n) 
