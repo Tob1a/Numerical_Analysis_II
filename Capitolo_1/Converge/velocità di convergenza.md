@@ -9,10 +9,19 @@ Esistono più velocità
 	\end{matrix}
 	$$
 	L'errore si riduce di un fattore costante k a ogni iterazione.
+	Se k=0 allora si dice **convergenza superlineare**
+	
+	mentre si dice che è di ordine p (con p >1) se: 
+	$$
+	\begin{matrix}
+		\text{una successione }x_n \text{ converge linearmente a }x^*\text{ se esiste una costante }k\in(0,1) \text{ tale che:}\\
+		\lim_{n\to \inf}{\frac{|x_{n+1}-x^*|}{|x_n-x^*|^p}=k}
+	\end{matrix}
+	$$
 	#Es. metodo del punto fisso x=cos(x)
 	$$x_{n+1}=cos(x_n)$$
 	Con k≈0.73k≈0.73, servono circa 10 iterazioni per guadagnare 1 cifra decimale.
-2) **Convergenza Quadratica**
+2) **Convergenza Quadratica** 
 	**Definizione**:  
 	La convergenza è quadratica se l'errore è proporzionale al **quadrato** dell'errore precedente:
 	$$

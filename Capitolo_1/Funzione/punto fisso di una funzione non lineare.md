@@ -24,3 +24,6 @@ end
 % iterati e' un array che contiene la sequenza degli approssimati ad ogni iterazione
 ```
 
+Per calcolare un fixed point dobbiamo fare cosí:
+
+Ho una convergenza quando il mio valore attuale (x) meno il precendente (x1) è minore della tolleranza;
