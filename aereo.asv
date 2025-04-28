@@ -1,0 +1,56 @@
+close all
+clear all
+clc
+addpath("/Users/tobiasacchetto/Documents/GitHub/Numerical_Analysis_II/Function");
+
+A= [
+    -3.933 0.107 0.126 0 -9.99 0 -45.83 -7.64;
+    0 -0.987 0 -22.95 9 -28.37 0 0;
+    0.002 0 -0.235 0 5.67 0 -0.921 -6.51;
+    0 1.0 0 -1.0 0 -0.168 0 0;
+    0 0 -1.0 0 -0.196 0 -0.0071 0;
+    ];
+
+%x1=velocita' di rollio
+%x2=velocita' di beccheggio
+%x3=velocita' di imbardata
+%x4=angolo di attacco
+%x5=angolo di derapata
+%x6=controlli di deviazione
+%x7=controlli di alettone
+%x8=controlli di timone
+A1=A(1:5,1:5);
+A2=A(1:5,6:8);
+
+
+% Example control inputs (replace with actual values)
+u = [1; -0.5; 0.2]; % [x6; x7; x8]
+
+% Initial guess for w (x1 to x5)
+w_old = ones(5, 1);
+
+% Iteration parameters
+max_iter = 100;
+tolerance = 1e-6;
+
+% Fixed-point iteration
+for iter = 1:max_iter
+    psi_w = psi(w_old);
+    rhs = A2 * u + psi_w;
+    w_new = - (A1 \ rhs);
+    
+    if norm(w_new - w_old) < tolerance
+        fprintf('Convergenza raggiunta in %d iterazioni.\n', iter);
+        break;
+    end
+    w_old = w_new;
+end
+
+% Output the result
+disp('Computed state vector w:');
+disp(w_new);
+
+psi_w=psi(w_old);
+g=@(x)(A1*x+A2*u+psi_w);
+[x,it,iterati]=fixed(g,w_old,max_iter,tolerance);
+fprintf('n. di iterazioni=%d x=[%g %g ]\n',it,x);
