@@ -23,3 +23,6 @@ Si può sostituire la [[funzione di contrazione]] con una [[clone/Capitolo_1/pse
 | Velocità          | Spesso più veloce           |
 | Applicabilità     | Problemi non convessi       |
 | Sicurezza         | Risultato valido localmente |
+
+
+Guardati bene il [[teorema convergenza locale]]
