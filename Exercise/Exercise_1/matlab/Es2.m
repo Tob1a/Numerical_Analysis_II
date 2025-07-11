@@ -1,0 +1,58 @@
+close all
+clear all
+clc
+addpath("/Users/tobiasacchetto/Documents/GitHub/Numerical_Analysis_II/Function");
+%%
+
+%%
+% Definizione della funzione di iterazione di punto fisso PER IL SISTEMA
+f = @(x) [x(1)^2 + x(2)^2-4;  % x_{n+1} = x^k-J(x^k)^-1*f(x^k)
+         x(1)*x(2)-1];
+
+J=@(x) [2*x(1), 2*x(2);
+        x(2),   x(1)];
+% %per calcolare J dobbiamo usare:
+% % syms x1 x2
+% f = [
+%     x1^2 + x2^2 - 4;
+%     x1 * x2 - 1
+% ];
+% 
+% % Calcolo della matrice jacobiana
+% J = jacobian(f, [x1, x2]);
+
+% Soluzione esatta (calcolata analiticamente)
+exact_x = sqrt(2 + sqrt(3));   % ~1.93185
+exact_y = 1/exact_x;           % ~0.51764
+sol = [exact_x; exact_y];
+
+% Parametri di ingresso
+x0 = [2; 0.5];  % Guess iniziale vicino alla soluzione
+tolf = 1e-6;tolx = 1e-6;
+maxit = 60;
+
+% Chiamata alla funzione fixed point (assunta implementata correttamente)
+[x,it,iterati]=sis_newton(f,J,x0,tolx,tolf,maxit);
+
+% Calcolo residuo ed errore
+fprintf('Iterazioni effettuate: %d \n Soluzione: [%.12f, %.12f]\n', it, x);
+for i = 1:it+1
+    res(i) = norm(iterati{i} - f(iterati{i})); % Residuo
+    err(i) = norm(iterati{i} - sol, inf);      % Errore assoluto
+end
+
+% Plot residuo
+figure;
+semilogy(1:it+1, res, 'r*-');
+title('Residuo vs iterazioni');
+xlabel('Iterazioni'); ylabel('||x_k - g(x_k)||');
+
+% Plot errore
+figure;
+semilogy(1:it+1, err, 'b*-');
+title('Errore assoluto vs iterazioni');
+xlabel('Iterazioni'); ylabel('||x_k - x^*||_{inf}');
+
+% Stima ordine di convergenza
+[p, C] = stima_ordine(iterati); 
+fprintf('Ordine stimato: %.3f \t Costante asintotica: %.3f\n', p, C);

@@ -3,7 +3,8 @@ close all
 clc
 addpath("/Users/tobiasacchetto/Documents/GitHub/Numerical_Analysis_II/Function");
 %%
-g=@(x) [sqrt(-x(2)^2 +4); 1/x(1)];
+%g=@(x) [sqrt(-x(2)^2 +4); 1/x(1)];
+g=@(x) [x(1)-x(1)^2+; 1/x(1)];
 sol=[0.11574647041495866187776141560711, 0.46150393460926706113391366090247]'% ground truth
 %fsolve e long
 
@@ -11,6 +12,8 @@ x0=[0 0]';
 tol=1e-16;
 maxit=60;
 
+
+phi=eye(2);
 
 [x,it,iterati]=fixed(g,x0,maxit,tol); %fixed è la funzione che mi permette di trovare il punto fisso di una funzione
 fprintf('n. di iterazioni=%d x=[%g %g ]\n',it,x);

@@ -4,7 +4,8 @@ clc
 addpath("/Users/tobiasacchetto/Documents/GitHub/Numerical_Analysis_II/Function");
 %%
 g=@(x) [1/4*x(2).^2+1/16; -1/3*sin(x(1))+1/2];
-sol=[0.11574647041495866187776141560711, 0.46150393460926706113391366090247]'% ground truth
+sol=[0.11574647041495866187776141560711, 0.46150393460926706113391366090247;
+    ];% ground truth
 x0=[0 0]';
 tol=1e-16;
 maxit=60;

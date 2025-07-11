@@ -32,42 +32,14 @@ psi = @(w) [ -0.727*w(2)*w(3) + 8.39*w(3)*w(4) - 684.4*w(4)*w(5) + 63.5*w(4)*w(2
 u = [0.6; 0.1; 0.1]; % [x6; x7; x8]
 
 % Initial guess for w (x1 to x5)
-w_old = zeros(5, 1);
+x0 = zeros(5, 1);
+x0=[0.1,0.1,0.1,0.1,0.1];
 
 % Iteration parameters
-max_iter = 14;
+max_iter = 150;
 tolerance = 1e-6;
 
-tic;
-% Fixed-point iteration
-for iter = 1:max_iter
-    psi_w = psi(w_old);
-    rhs = A2 * u + psi_w;
-    w_new = - (A1 \ rhs);  %sarebbe A1*w^(k+1)=-(A_2*u+psi(w^k))
-    
-    if norm(w_new - w_old) < tolerance
-        fprintf('Convergenza raggiunta in %d iterazioni.\n', iter);
-        break;
-    end
-    w_old = w_new;
-end
-tempo=toc;
-% Output the result
-disp('Computed state vector w:');
-disp(w_new);
-fprintf("Il tempo e' %g \n\n",tempo);
-
-f=@(x)(-inv(A1)*(A2*u+psi(x)));
-tic;
-[x,it,iterati]=fixed(f,w_old,max_iter,tolerance);
-tempo=toc;
-disp('Computed state vector w:');
-disp(x);
-fprintf('Numero di iterazioni: %d\n',it);
-fprintf("Il tempo e' %g \n\n",tempo);
-
-
-
+f=@(x)((-A1)\(A2*u+psi(x)));
 
 %ora usiamo il metodo di newton_globale
 %per farlo ho bisogno della jacobiana della funzione
@@ -81,18 +53,17 @@ fprintf("Il tempo e' %g \n\n",tempo);
 %J_phi=jacobian(psi_sym);
 %J=A1+J_phi;
 %che in function handle sarebbe:
-J = @(w, w6, w7, w8) [ -3933/1000, (127*w(4))/2 - (727*w(3))/1000 + 107/1000, (839*w(4))/100 - (727*w(2))/1000 + 63/500, (127*w(2))/2 + (839*w(3))/100 - (3422*w(5))/5, - (3422*w(4))/5 - 999/100;
+J = @(w) [ -3933/1000, (127*w(4))/2 - (727*w(3))/1000 + 107/1000, (839*w(4))/100 - (727*w(2))/1000 + 63/500, (127*w(2))/2 + (839*w(3))/100 - (3422*w(5))/5, - (3422*w(4))/5 - 999/100;
                          (949*w(3))/1000 + (173*w(5))/1000, -987/1000, (949*w(1))/1000, -459/20, (173*w(1))/1000 + 9;
                          1/500 - (789*w(4))/500 - (179*w(2))/250, (283*w(4))/250 - (179*w(1))/250, -47/200, (283*w(2))/250 - (789*w(1))/500, 567/100;
                          -w(5), 1, 0, -1, -w(1);
                          w(4), 0, -1, w(1), -49/250 ];
 %ora posso richiamare la mia formula per newton_globale
-x0=w_old;
+
 tolx=tolerance;
 tolf=tolerance;
-J=@(w)J(w,u(1),u(2),u(3));
 [x,it,iterati,merito] = sis_newton_glob(f,J,x0,tolx,tolf,max_iter);
 disp('Computed state vector w:');
 disp(x);
 fprintf('Numero di iterazioni: %d\n',it);
-
+%il sistema continua perche' entra in un minimo locale

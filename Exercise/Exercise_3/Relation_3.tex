@@ -1,0 +1,78 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath, amssymb, mathtools}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc} % per interpretare i caratteri UTF-8
+\usepackage[T1]{fontenc}    % per una corretta codifica dei font
+\usepackage{float}
+
+
+\lstset{
+  language=Matlab,         % Linguaggio MATLAB
+  basicstyle=\ttfamily\footnotesize, % Tipo di carattere (monospazio) e dimensione
+  numbers=left,           % Numeri di riga a sinistra
+  numberstyle=\tiny\color{gray}, % Stile numeri di riga
+  stepnumber=1,           % Un numero per ogni riga
+  numbersep=8pt,          % Distanza tra numeri di riga e codice
+  backgroundcolor=\color{black!5}, % Sfondo leggermente grigio chiaro
+  showstringspaces=false, % Non visualizzare spazi tra le stringhe
+  keywordstyle=\bfseries\color{cyan!70!black}, % Parole chiave in blu-verde
+  commentstyle=\itshape\color{green!50!black}, % Commenti in verde italico
+  stringstyle=\color{red!80!black}, % Stringhe in rosso
+  identifierstyle=\color{purple}, % Identificatori (variabili) in viola
+  breaklines=true,        % Linee lunghe si spezzano
+  frame=single,           % Cornice attorno al codice
+  framexleftmargin=5pt,   % Distanza tra il codice e la cornice a sinistra
+  framexrightmargin=5pt,  % Distanza tra il codice e la cornice a destra
+  framextopmargin=5pt,    % Distanza tra il codice e la cornice in alto
+  %framebottommargin=5pt,  % Distanza tra il codice e la cornice in basso
+  rulecolor=\color{black}, % Colore della cornice
+  captionpos=b,           % Posizione della didascalia (opzionale)
+  aboveskip=10pt,         % Distanza sopra il blocco di codice
+  belowskip=10pt,         % Distanza sotto il blocco di codice
+  lineskip=2pt,           % Distanza tra le righe
+}
+
+% Impostazione per visualizzare i risultati della console
+\lstdefinestyle{console}{
+  basicstyle=\ttfamily\footnotesize\color{black},
+  backgroundcolor=\color{black!10}, % Leggero grigio per il fondo
+  frame=single,          % Cornice attorno ai risultati
+  rulecolor=\color{black}, % Colore della cornice
+  captionpos=b,           % Posizione della didascalia
+  aboveskip=10pt,         % Distanza sopra il blocco di codice
+  belowskip=10pt,         % Distanza sotto il blocco di codice
+  numbers=none,           % No numerazione delle righe
+  showstringspaces=false, % Non mostra gli spazi nelle stringhe
+  breaklines=true,        % Le linee troppo lunghe si spezzano
+}
+
+
+
+
+
+
+\begin{document}
+
+\title{Metodi di Risoluzione per ODE}
+
+\author{Tobia Sacchetto}
+\date{\today}
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Esercizio 1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Consegna}
+Preso dall'esercizio 1: Considerare il metodo di Eulero esplicito e quello di Eulero implicito come la coppia di formule che forma un metodo predictor–corrector. Risolvere il seguente problema di Cauchy
+\[
+y'=-5y(x)+x \qquad y(0)=1
+\]
+sull’intervallo [0, 4] con passo $h = 0.1$. Indicare qual `e la costante di errore
+(funzione di influenza) e fornirne una stima.
+
+\subsection{Svolgimento}
+
+\end{document}
