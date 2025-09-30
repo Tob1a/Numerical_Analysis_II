@@ -3,8 +3,10 @@ y(1,:)=y0;
 n=fix((x1-x0)/h+0.5);%+0.5 perche' ho un h troppo piccolo e ci aggiungo qualcosa
 x=linspace(x0,x1,n+1);
 for i=1:n
+    %predictor
     k1=feval(f,x(i),y(i,:));
     pre=y(i,:)+h*k1;
+    %corrector
     for k=1:p
         pre=y(i,:)+h*feval(f,x(i+1),pre);
     end

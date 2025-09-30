@@ -5,6 +5,13 @@ function y=eulero(f,y0,x)
 %y e' una matrice con
 %numero di righe e' uguale al numero di elementi della mia
 %descritetizzazione (lenght(x))
+
+
+
+
+
+% Allora questo metodo e' eulero esplicito 
+
 y(1,:)=y0;
 n=length(x);
 for i=1:n-1
